@@ -5,6 +5,7 @@ public class U1 extends Rocket {
         this.weight=10000;
         this.cost=100;
         this.maxWeight=18000;
+        this.weightWithCargo=this.weight;
     }
     public boolean launch(){
         double randomNumber=Math.random();
