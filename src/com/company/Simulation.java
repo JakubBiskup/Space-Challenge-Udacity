@@ -16,6 +16,7 @@ public class Simulation {
         }
         return itemList;
     }
+    //TODO: helper method to simplify loadU1 and loadU2
     public static ArrayList<U1> loadU1(ArrayList<Item> itemList){
         ArrayList<U1> monofleet= new ArrayList<U1>();
         while (itemList.size()>0){
@@ -30,6 +31,7 @@ public class Simulation {
         }
         return monofleet;
     }
+
     public static ArrayList<U2> loadU2(ArrayList<Item> itemList){
         ArrayList<U2> monofleet= new ArrayList<U2>();
         while (itemList.size()>0){
@@ -44,4 +46,17 @@ public class Simulation {
         }
         return monofleet;
     }
+    public static <T extends Rocket>  int runSimulation(ArrayList<T> fleet){
+        int budgetRequired=0;
+        for (Rocket rocket:fleet
+             ) {
+            while(!rocket.launch()||!rocket.land()){
+                budgetRequired+=rocket.cost;
+
+            }
+            budgetRequired+=rocket.cost;
+        }
+        return budgetRequired;
+    }
+
 }
