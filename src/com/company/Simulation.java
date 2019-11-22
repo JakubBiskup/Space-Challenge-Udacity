@@ -6,6 +6,11 @@ import java.util.Scanner;
 
 public class Simulation {
     public static ArrayList<Item> loadItems(File textfile) throws Exception{
+        /**
+         * Loads all items from a text file
+         * @param textfile text file containing the list of items where each line in the text file consists of the item name followed by '='
+         * @return an ArrayList of Item objects
+         */
         ArrayList<Item> itemList = new ArrayList<Item>();
         Scanner scanner=new Scanner(textfile);
         while (scanner.hasNextLine()){
@@ -16,8 +21,12 @@ public class Simulation {
         }
         return itemList;
     }
-    //TODO: helper method to simplify loadU1 and loadU2
     public static ArrayList<U1> loadU1(ArrayList<Item> itemList){
+        /**
+         * starts creating U1 rockets. It first tries to fill up 1 rocket with as many items as possible before creating a new rocket object and filling that one until all items are loaded.
+         * @param itemList an ArrayList of Item objects
+         * @return an ArrayList of U1 rockets that together carry all items from the itemList
+         */
         ArrayList<U1> monofleet= new ArrayList<U1>();
         while (itemList.size()>0){
             U1 u1Rocket= new U1();
@@ -33,6 +42,11 @@ public class Simulation {
     }
 
     public static ArrayList<U2> loadU2(ArrayList<Item> itemList){
+        /**
+         * starts creating U2 rockets. It first tries to fill up 1 rocket with as many items as possible before creating a new rocket object and filling that one until all items are loaded.
+         * @param itemList an ArrayList of Item objects
+         * @return an ArrayList of U2 rockets that together carry all items from the itemList
+         */
         ArrayList<U2> monofleet= new ArrayList<U2>();
         while (itemList.size()>0){
             U2 u2Rocket= new U2();
@@ -47,6 +61,11 @@ public class Simulation {
         return monofleet;
     }
     public static <T extends Rocket>  int runSimulation(ArrayList<T> fleet){
+        /**
+         * runs the simulation
+         * @param fleet an ArrayList of loaded rockets to be sent to Mars
+         * @return  the total budget required to send all rockets (including the crashed ones).
+         */
         int budgetRequired=0;
         for (Rocket rocket:fleet
              ) {

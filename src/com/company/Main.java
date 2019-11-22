@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         File phase1 = new File("Phase 1.txt");
         File phase2 = new File("Phase 2.txt");
-        Simulation simulation = new Simulation(); //unnecessary but it's one of the steps in specs
         ArrayList<Item> items1 = Simulation.loadItems(phase1);
         ArrayList<Item> items2 = Simulation.loadItems(phase2);
         ArrayList<U1> u1fleet1 = Simulation.loadU1(items1);
@@ -23,6 +22,7 @@ public class Main {
         int budgetPhase1U2=Simulation.runSimulation(u2fleet1);
         int budgetPhase2U2=Simulation.runSimulation(u2fleet2);
         System.out.println("Total budget required using U2 rockets: "+(budgetPhase1U2+budgetPhase2U2)+" $Millions");
+
 
 
 

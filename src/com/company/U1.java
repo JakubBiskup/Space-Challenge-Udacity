@@ -8,6 +8,9 @@ public class U1 extends Rocket {
         this.weightWithCargo=this.weight;
     }
     public boolean launch(){
+        /**
+         * @return whether launch was successful or not (false means the rocket crashed during the launch)
+         */
         double randomNumber=Math.random();
         int cargoCarried=this.weightWithCargo-this.weight;
         int cargoLimit=this.maxWeight-this.weight;
@@ -15,6 +18,9 @@ public class U1 extends Rocket {
         return randomNumber >= 0.05 * cargoFactor;
     }
     public boolean land(){
+        /**
+         * @return whether landing was successful or not (false means the rocket crashed during the landing)
+         */
         double randomNumber=Math.random();
         int cargoCarried=this.weightWithCargo-this.weight;
         int cargoLimit=this.maxWeight-this.weight;
